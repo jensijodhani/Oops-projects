@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank</title>
+</head>
+
+<body>
+    <script>
+        class Bank {
+
+            constructor(accno, name, bal) {
+                this.accno = accno;
+                this.name = name;
+                this.bal = bal;
+            }
+
+            addBalance(amt) {
+                this.bal = this.bal + amt;
+                console.log(`your total balance := ${this.bal}`);
+            }
+
+            withdraw(amt) {
+                this.bal = this.bal - amt;
+                if (this.bal > 0) {
+                    console.log(`succsefully withdraw`);
+                } else {
+                    console.log(`sorry not valid`);
+                }
+                console.log(`${this.bal}`);
+            }
+
+            showBalance() {
+                console.log(`show your balance := ${this.bal}`);
+            }
+
+        }
+
+        let bank = new Bank(1234, "jensi", 1000);
+
+        let acc;
+        do {
+
+            acc = parseInt(prompt("press 1 addBalance 2 withdraw 3 showBalance 0 exit"));
+
+            switch (acc) {
+                case 1:
+                    let depositAmount = parseInt(prompt("Enter your add balance:"));
+                    bank.addBalance(depositAmount);
+                    break;
+
+                case 2:
+                    let withdr = parseInt(prompt("Enter amount to withdraw:"));
+                    bank.withdraw(withdr);
+                    break;
+
+                case 3:
+                    bank.showBalance();
+                    break;
+
+                case 0:
+                    document.write(`<h1>Thank you you are exit..!</h1>`);
+                    break;
+
+                default:
+                    console.log(`sorry not vaild..!`);
+                    break;
+            }
+
+        } while (acc != 0);
+
+    </script>
+</body>
+
+</html>
